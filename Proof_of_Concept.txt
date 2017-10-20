@@ -1,0 +1,34 @@
+To all Antivirus vendor and MRHPx Virtual Desktop User
++====================================================+
+Below the reason why some Antivirus programs Screams like a GIRLS when you're
+activated 'Run at Startup up Windows' feature in MRHPx Virtual Desktop ;)
+Yes, I've adopted 'File Self-Copying' just like Worm infection. It's copying
+itself to system root directory. As long as I know this method won't harm you
+nor the operating system. 'Cause the program will be deleting itself when you
+deactivated 'Run at Startup up Windows' feature in MRHPx Virtual Desktop
+It just only a concept.. So don't be surprise..
+and don't judge MRHPx Virtual Desktop as a virus! I don't want to harm you
+even for a little! Know it!
+
+Below I've attached the code for you to know..
+Whether you understand assembly or NOT it's not my problem :P
+(X = Value/Contents)
+
+invoke RegSetValueEx,XXX,XXX,X,REG_SZ,XXX,X
+invoke GetSystemDirectory,XXX,sizeof XXX
+invoke SetCurrentDirectory,XXX
+invoke GetModuleFileName,X,XXX,SIZEOF XXX
+invoke lstrcat,XXX,XXX
+invoke lstrcmpi,XXX,XXX
+.IF  eax!=X 
+   invoke CopyFile,XXX,XXX,XXX
+   invoke RegOpenKeyEx,HKEY_LOCAL_MACHINE,XXX,X, \
+   KEY_SET_VALUE,XXX
+   invoke lstrlen,XXX
+   invoke RegSetValueEx,XXX,XXX,X, \
+   REG_SZ,XXX,XXX
+   invoke RegCloseKey,XXX   
+.ENDIF
+
+NB : Antivirus vendor, please only made a quality scanner.. don't made a silly scanner.
+     If you can't, why don't you just selling pizza?? It would be better :P
